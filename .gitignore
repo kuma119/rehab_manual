@@ -1,0 +1,22 @@
+# 이 저장소는 공개 매뉴얼 전용입니다.
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+*.log
+*.pid
+credentials*.json
+*private*.json
+.work/
+qa/
+tools/
+node_modules/
+__pycache__/
+.DS_Store
+Thumbs.db
+Desktop.ini
+serve.py
+start.ps1
+*.zip

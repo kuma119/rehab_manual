@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="프리킴 재활운동 예약 앱의 사용 안내입니다. 역할별 실제 화면을 따라 배우고, 자동 시연과 영상 촬영 모드를 이용해 보세요.">
+  <meta name="theme-color" content="#f5f7f2">
+  <title>프리킴 · 함께 배우는 사용 안내</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="data.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="프리킴 사용 안내 처음으로"><span class="brand-mark" aria-hidden="true">f<span>·</span></span><span>프리킴 <small>사용 안내</small></span></a>
+    <span class="header-note"><span class="status-dot"></span>화면을 누르며 배우는 앱 안내</span>
+    <button id="header-home" class="text-button" hidden>전체 안내 <span aria-hidden="true">↗</span></button>
+  </header>
+  <main id="main" tabindex="-1">
+    <section id="home" class="home-shell">
+      <div class="hero">
+        <div><p class="eyebrow">FREKIM · INTERACTIVE GUIDE</p><h1>처음이어도,<br>함께 따라 하면 쉬워요.</h1><p class="hero-copy">예약부터 회원 관리까지.<br class="mobile-break"> 실제 화면을 따라 한 걸음씩 배워보세요.</p><div class="hero-notes"><span><b aria-hidden="true">✓</b> 실수해도 괜찮아요</span><span><b aria-hidden="true">✓</b> 실제 정보는 바뀌지 않아요</span></div></div>
+        <div class="hero-card"><span class="hero-card-label">이렇게 이용해 보세요</span><ol><li><span>01</span><div><strong>하고 싶은 일을 골라요</strong><p>내 역할에 맞는 안내를 찾아보세요.</p></div></li><li><span>02</span><div><strong>초록색 표시를 눌러요</strong><p>화면 위의 표시를 누르면 다음으로 이동해요.</p></div></li><li><span>03</span><div><strong>연결된 결과를 확인해요</strong><p>다른 사람의 화면에 생긴 변화도 볼 수 있어요.</p></div></li></ol></div>
+      </div>
+      <section class="catalog" aria-labelledby="catalog-title"><div class="section-heading"><div><p class="eyebrow">나에게 필요한 안내</p><h2 id="catalog-title">어떤 일을 해볼까요?</h2></div><p id="scenario-count" class="muted"></p></div><div class="catalog-tools"><div id="role-filters" class="role-filters" role="group" aria-label="역할로 안내 찾기"></div><label class="search-box"><span aria-hidden="true">⌕</span><input id="scenario-search" type="search" placeholder="배우고 싶은 일을 찾아보세요" aria-label="업무 이름으로 안내 찾기"></label></div><div id="scenario-grid" class="scenario-grid"></div><p id="empty-search" class="empty-message" hidden>찾는 안내가 없어요. 다른 말로 찾아보거나 ‘전체’를 선택해 주세요.</p></section>
+      <footer class="home-footer"><p>가상 회원과 예약으로 촬영한 연습용 안내입니다. 화면의 이름·아이디·연락처는 모두 시연용이며, 실제 정보는 바뀌지 않아요.</p><span id="version-note"></span></footer>
+    </section>
+    <section id="player" class="player-shell" hidden aria-label="단계별 사용 안내">
+      <div class="player-heading"><button id="back-home" class="text-button">← 전체 안내</button><div><p id="scenario-category" class="eyebrow"></p><h1 id="scenario-title"></h1></div><button id="restart" class="secondary-button">↺ 처음부터</button></div>
+      <details class="preparation"><summary>시작 전에 확인해 주세요 <span aria-hidden="true">＋</span></summary><div id="prerequisites"></div></details>
+      <div class="player-layout"><aside class="steps-panel" aria-label="전체 단계"><div class="steps-heading"><strong>따라갈 순서</strong><span id="step-total"></span></div><ol id="step-list"></ol><div class="practice-note"><span aria-hidden="true">i</span><p>이곳은 연습 화면이에요.<br>앱의 실제 정보는 바뀌지 않아요.</p></div></aside>
+        <div class="lesson-main"><div class="playback-toolbar"><div class="mode-switch" role="group" aria-label="안내 방식"><button id="mode-practice" aria-pressed="true">직접 따라 하기</button><button id="mode-auto" aria-pressed="false">자동 시연</button></div><div class="playback-options"><label class="speed-option">속도 <select id="speed" aria-label="자동 시연 속도"><option value="0.75">천천히</option><option value="1" selected>보통</option><option value="1.5">빠르게</option></select></label><button id="play-toggle" class="secondary-button">▶ 시연 재생</button><button id="film-open" class="secondary-button">촬영 설정</button></div></div>
+          <div id="stage-wrapper" class="stage-wrapper"><div id="stage" class="stage" data-aspect="landscape"><div class="screen-column"><div class="screen-topline"><span class="real-screen-tag">실제 앱 화면</span><span id="screen-step"></span></div><div id="screen-frame" class="screen-frame"><img id="step-image" alt="" draggable="false"><div id="image-loading" class="image-state"><span class="spinner" aria-hidden="true"></span><span>화면을 불러오고 있어요</span></div><div id="image-missing" class="image-state" hidden><strong>화면을 불러오지 못했어요</strong><p>설명을 확인하거나 다음 단계로 이동해 주세요.</p><button id="image-retry" class="secondary-button">다시 불러오기</button></div><button id="hotspot" class="hotspot" hidden><span class="hotspot-number" aria-hidden="true">1</span></button><span id="demo-pointer" class="demo-pointer" aria-hidden="true" hidden><svg viewBox="0 0 32 40"><path d="M3 2 4 29 12 23 18 36 24 33 18 20 28 19Z"/></svg><span></span></span></div><div class="screen-bottomline"><span id="screen-hint">초록색 표시를 눌러 다음으로 이동해요</span><button id="zoom-open" class="text-button" aria-label="현재 화면 크게 보기">크게 보기 ⤢</button></div></div><div class="story-column"><div id="role-chip" class="role-chip"></div><p id="actor-name" class="actor-name"></p><div id="transition-note" class="transition-note" hidden></div><p id="story-number" class="eyebrow"></p><h2 id="step-title" tabindex="-1"></h2><p id="step-caption" class="step-caption"></p><div id="step-result" class="step-result"></div><div id="completed-note" class="completed-note" hidden><strong>잘 따라오셨어요!</strong><p id="completed-outcome"></p></div><div class="stage-brand">프리킴 <span>· 함께 배우는 사용 안내</span></div></div><div id="countdown" class="countdown" hidden><p>곧 시연을 시작해요</p><strong id="countdown-number">3</strong></div></div><div id="film-controls" class="film-controls" hidden><span>촬영 모드 · Esc로 나가기</span><button id="film-play" class="secondary-button">일시정지</button><button id="film-restart" class="secondary-button">처음부터</button><button id="film-close" class="secondary-button">촬영 끝내기 ×</button></div></div>
+          <div class="progress-track" aria-hidden="true"><span id="play-progress"></span></div><nav class="step-navigation" aria-label="단계 이동"><button id="previous" class="secondary-button">← 이전</button><span id="step-counter" aria-live="polite" aria-atomic="true"></span><button id="next" class="primary-button">다음 <span aria-hidden="true">→</span></button></nav><p id="playback-status" class="playback-status" role="status" aria-live="polite"></p>
+        </div></div>
+    </section>
+  </main>
+  <dialog id="film-dialog" class="settings-dialog" aria-labelledby="film-title"><div class="dialog-top"><h2 id="film-title">영상으로 담아보세요</h2><button id="film-settings-close" class="icon-button" aria-label="촬영 설정 닫기">×</button></div><p>보조 메뉴를 숨기고 처음부터 자동으로 보여드려요.<br>화면 녹화는 사용하는 기기의 녹화 기능으로 시작해 주세요.</p><fieldset><legend>시연할 내용</legend><label class="length-choice"><input id="film-length-full" name="film-length" type="radio" value="full" checked><span><b>전체 과정</b><small>모든 단계를 차근차근 보여드려요</small></span></label><label id="highlights-option" class="length-choice"><input name="film-length" type="radio" value="highlights"><span><b>핵심 장면만 짧게</b><small>홍보용으로 주요 행동과 결과를 이어서 보여드려요</small></span></label></fieldset><fieldset><legend>영상의 모양</legend><label class="aspect-choice"><input name="aspect" type="radio" value="landscape" checked><span><b>가로 화면</b><small>16:9 · 소개 영상에 어울려요</small></span><i class="aspect-icon landscape" aria-hidden="true"></i></label><label class="aspect-choice"><input name="aspect" type="radio" value="portrait"><span><b>세로 화면</b><small>9:16 · 짧은 모바일 영상에 어울려요</small></span><i class="aspect-icon portrait" aria-hidden="true"></i></label></fieldset><div class="settings-note">3초 준비 시간 후 시작합니다. 마우스를 화면 위로 옮기거나 Tab을 누르면 재생 버튼이 나타나요. Esc를 누르면 촬영 모드를 끝낼 수 있어요.</div><button id="film-start" class="primary-button full-width">촬영 모드 시작</button></dialog>
+  <dialog id="zoom-dialog" class="zoom-dialog" aria-labelledby="zoom-title"><div class="zoom-toolbar"><h2 id="zoom-title">화면 크게 보기</h2><button id="zoom-close" class="secondary-button">닫기 ×</button></div><div class="zoom-scroll"><img id="zoom-image" alt=""></div></dialog>
+  <noscript><p class="empty-message">이 안내를 이용하려면 브라우저에서 자바스크립트를 켜 주세요.</p></noscript>
+</body>
+</html>
